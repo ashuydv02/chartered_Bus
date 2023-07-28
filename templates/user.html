@@ -1,0 +1,59 @@
+{% extends 'default.html'%}
+
+{%block css%}
+  h1
+  {
+    text-align:center;
+  }
+  .searchbar
+    {
+        margin-left:1000px;
+    }
+{%endblock%}
+
+{%block html%}
+{%if error%}
+    <script type="text/javascript">
+        alert("{{error}}")
+    </script>
+{%endif%}
+<div class="row1">
+  <h1>List Of User</h1>
+    <form action="/dousersearch" method="post">
+        <div class="searchbar">
+            <p><input type="search" name="search" placeholder="Search User name,number,email"><input type="submit" value="Search"></p>
+        </div>
+    </form>
+        <table class="table table-striped" style="margin-top: 50px;">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Number</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
+              <th scope="col">Update</th>
+            </tr>
+          </thead>
+          <tbody>
+          {%for item in data%}
+            <tr>
+              <th scope="row">{{loop.index}}</th>
+              <td>{{item[1]}}</td>
+              <td>{{item[2]}}</td>
+              <td>{{item[3]}}</td>
+              <td>{{item[4]}}</td>
+              <td><a href="/updateuser?sno={{item[0]}}"><input type="button" value="Edit"></a>
+                <a href="/deleteuser?sno={{item[0]}}"><input type="button" value="Delete"></a>
+              </td>
+            </tr>
+          {%endfor%}
+          </tbody>
+          <tfoot>
+              <td colspan="6" align="right"><a href="/newuser"><input type="button" value="Add User"></a></td>
+          </tfoot>
+        </table>
+
+
+</div>
+{%endblock%}

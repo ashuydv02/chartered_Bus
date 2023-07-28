@@ -1,0 +1,49 @@
+{% extends 'default.html'%}
+{%block css%}
+    table
+    {
+        position:absolute;
+        margin-top:100px;
+        margin-left:500px;
+    }
+
+{%endblock%}
+
+
+{%block html%}
+    <form action="/dorouteupdate" method="post">
+        <table class="table table-hover" border="5" style="width:400px;" >
+          <thead>
+                <th colspan="2">Change Routes Information</th>
+          </thead>
+
+          <tbody>
+                    {% for item in data%}
+                        <p><input type="hidden" name="sno" value="{{item[0]}}" /></p>
+                            <tr>
+                            <th scope="col">From</th>
+                            <td><input type="text" name="from" value="{{item[1]}}"/></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">TO</th>
+                                <td> <input type="text" name="to" value="{{item[2]}}"></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Distance</th>
+                                <td><input type="text" name="distance" value="{{item[3]}}"/></td>
+                            </tr>
+                            <tr>
+                              <th scope="col">Cost</th>
+                              <td><input type="text" name="price" value="{{item[4]}}" /></td>
+                            </tr>
+                    {%endfor%}
+          </tbody>
+          <tfoot>
+                <td colspan="2" align="right">
+                    <input type="submit" value="Submit" />
+                </td>
+          </tfoot>
+        </table>
+    </form>
+
+{%endblock%}

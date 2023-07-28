@@ -1,1 +1,315 @@
+{%extends "navbardefault.html"%}
+	{%block contentcss%}
 
+		.body img
+		{
+			width: 100%;
+			height: 50%;
+		}
+		.name
+		{
+			font-weight: bold;
+			position: relative;
+			left: 110px;
+			top:-450px;
+			z-index: 1;
+			background-color: lightblue;
+			width: 110px;
+			padding: 10px 10px;
+			opacity: 0.90;
+		}
+		.name1
+		{
+			height: 100px;
+			width: 1050px;
+			background-color: lightblue;
+			position: relative;
+			left: 110px;
+			top: -450px;
+			opacity: 0.90;
+		}
+		.name1 select
+		{
+			padding: 6px 60px;
+			font-size: 20px;
+			position: relative;
+			top: 30px;
+			left: 80px;
+			padding-left: 5px;
+			border:none;
+			background-color: lightblue;
+			border-bottom: groove black;
+			opacity: 0.90;
+		}
+		.name2 select
+		{
+			padding: 6px 60px;
+			font-size: 20px;
+			position: relative;
+			top: -525px;
+			left: 490px;
+			padding-left: 5px;
+			border:none;
+			background-color: lightblue;
+			border-bottom: groove black;
+			opacity: 0.90;
+		}
+		.name3 input
+		{
+			padding: 6px 10px;
+			font-size: 18px;
+			position: relative;
+			top: -558px;
+			left: 780px;
+			border:none;
+			background-color: lightblue;
+			border-bottom: groove black;
+			opacity: 0.90;
+		}
+		.search input
+		{
+			width: 150px;
+			font-size: 30px;
+			border:none;
+			background-color: blue;
+			position: relative;
+			left: 1080px;
+			top: -600px;
+			color: white;
+		}
+		.search input:hover
+		{
+			color: black;
+			cursor: pointer;
+		}
+		.heading p
+		{
+			font-size: 50px;
+			color: blue;
+			position: absolute;
+			margin-left: 550px;
+			margin-top: -250px;
+		}
+		.heading p1
+		{
+			font-size: 50px;
+			position: absolute;
+			margin-left: 400px;
+			margin-top: -50px;
+		}
+		.heading2
+		{
+			height: 250px;
+			width: 100%;
+			background-color: royalblue;
+			position: absolute;
+			margin-top: 200px;
+		}
+		.heading2 p
+		{
+			font-size: 50px;
+			color:white;
+			position: absolute;
+			margin-left: 560px;
+			border-bottom: black solid;
+		}
+		.heading2 img
+		{
+			height: 100px;
+			width: 100px;
+			display: inline;
+			margin-left: 100px;
+			margin-top: 100px;
+		}
+		.user p43
+		{
+			position: absolute;
+			margin-left: 1100px;
+			margin-top: -50px;
+			background-color:#ffb31a;
+		}
+		.user p43 input
+		{
+
+			position: absolute;
+			margin-left:-80px;
+			margin-top:-5px;
+			height:40px;
+			width:230px;
+			font-size:18px;
+			font-family:Verdana Pro Light;
+			font-weight:bold;
+			color:#e60000;
+			background-color:#ffb31a;
+			border:none;
+		}
+		.username p43
+		{
+			position: absolute;
+			margin-left: 1100px;
+			margin-top: -50px;
+			height:30px;
+			width:160px;
+			font-size:18px;
+			font-family:Verdana Pro Light;
+			font-weight:bold;
+			color:#e60000;
+			text-align:center;
+			background-color:#ffb31a;
+			padding:2px;
+			overflow:hidden;
+			box-sizing:border-box;
+		}
+		.username p45 img
+		{
+			position:absolute;
+			margin-top:-50px;
+			margin-left:1050px;
+			height:30px;
+			width:30px;
+
+		}
+
+		.username p43:hover
+		{
+			cursor: pointer;
+		}
+		.useraccount
+		{
+			background:none;
+			position:absolute;
+			margin-left: 1100px;
+			margin-top: -19px;
+			z-index:1;
+			color: white;
+			height:0px;
+			width: 0px;
+			box-sizing:border-box;
+			text-align:justify;
+			opacity:0;
+			padding: 40px;
+			rotate:180deg;
+			font-size: 20px;
+			transition: all;
+			transform: scale(0);
+		}
+		.username:hover .useraccount
+		{
+			transform: scale(1) rotate(180deg);
+			opacity: 1;
+			transition-delay: .5s;
+			transition-duration: .8s;
+			color:blue;
+		}
+		.useraccount input[type=button]
+		{
+			position:relative;
+			left:-25px;
+			top:-40px;
+			height:40px;
+			width:130px;
+			font-size:15px;
+			font-weight:bold;
+			background-color:#ffb84d;
+			border:none;
+		}
+
+	{%endblock%}
+{%block contenthtml%}
+	{%if(session['user'])%}
+		<div class="username">
+			<p43>{{session['user'][1]}}</p43>
+			<p45><img src="static/pic/userac.png" /></p45>
+			<div class="useraccount">
+				<a href="/userlogin"><input type="button" value="Logout"></a>
+			</div>
+		</div>
+
+	{%else%}
+		<div class="user">
+			<p43><a href="/userlogin"><input type="submit" value="User SignUp/LogIn"/></a></p43>
+		</div>
+	{%endif%}
+	{% if error %}
+		<script type="text/javascript">
+			alert("{{error}}");
+		</script>
+	{% endif %}
+
+	<form action="/dohome" method="post">
+	<div class="body">
+		<div class="photo">
+			<img src="static/pic/busphoto.png">
+		</div>
+		<div class="name">
+			<p>CHARTERED</p>
+		</div>
+		<div class="name1">
+				<select type="text" name="start">
+					<option>From</option>
+					{%for item  in data%}
+						<option>{{item[0]}}</option>
+					{%endfor%}
+				</select>
+		</div>
+		<div class="name2">
+				<select type="text" name="end">
+					<option>To</option>
+					{%for item  in data%}
+						<option>{{item[0]}}</option>
+					{%endfor%}
+				</select>
+		</div>
+		<div class="name3">
+			<input type="date" name="date" required/>
+		</div>
+	</div>
+	<div class="search">
+		<input type="submit" value="Search"/>
+	</div>
+	<div class="heading">
+		<p>Quick Routes</p>
+		<p1>Quick Routes Not Available....</p1>
+	</div>
+	<div class="heading2">
+		<p>Amenities</p>
+			<marquee behavior="scroll" direction="left" scrollamount="30" >
+				<img src="static/pic/w.png" >
+				<img src="static/pic/wifi.png">
+				<img src="static/pic/blankets.png">
+				<img src="static/pic/Charger.png">
+				<img src="static/pic/live.png">
+				<img src="static/pic/pillow.png">
+				<img src="static/pic/light.png">
+				<img src="static/pic/emergency.png">
+			</marquee>
+
+	</div>
+	</form>
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Instructuions</h5>
+                <button type="button" class="close" data-dismiss="modal" id="hidden">&times;</button>
+            </div>
+            <div class="modal-body">
+				<li> Please wear Mask </li><li> Senatize Your Hands</li><li> 2% Discount After Login</li>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+{%block myjavascript%}
+<script type="text/javascript" src="{{url_for('static',filename='pic/jquery.js')}}"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+        $("#myModal").modal('show');
+        $("#hidden").click(function(){
+        	$("#myModal").modal('hide');
+        });
+    });
+
+</script>
+{% endblock %}

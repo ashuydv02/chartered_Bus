@@ -1,0 +1,75 @@
+{% extends 'default.html'%}
+
+
+{%block css%}
+
+
+.login p11
+{
+    position:absolute;
+    margin-top:50px;
+    margin-left:100px;
+    font-weight:bold;
+    font-size:20px;
+    width:15%;
+}
+.login p12
+{
+    position:absolute;
+    margin-top:130px;
+    margin-left:100px;
+    font-weight:bold;
+    font-size:20px;
+    width:15%;
+}
+.login p13
+{
+    position:absolute;
+    margin-top:210px;
+    margin-left:100px;
+    font-weight:bold;
+    font-size:20px;
+    width:15%;
+}
+
+.login span
+{
+    position:absolute;
+    margin-top:290px;
+    margin-left:100px;
+}
+.login span input
+{
+    background:blue;
+    font-size:25px;
+    font-weight:bold;
+}
+span input:hover
+{
+    color:white;
+}
+.login img
+{
+    margin-left:500px;
+    height:500px;
+}
+{%endblock%}
+
+{%block html%}
+    {% if error %}
+		<script type="text/javascript">
+			alert("{{error}}");
+		</script>
+	{% endif %}
+<form action="/adminlogin" method="post">
+     <div class="login">
+        <p11>User Name: <input type="text" name="username" required/></p11>
+         <p12>Number : <input type="text" name="number" required></p12>
+        <p13>Password: <input type="password" name="password" required/></p13>
+        <span><input type="submit" value="Login"></span><br>
+         <img src="static/pic/bus11.png">
+    </div>
+</form>
+
+
+{%endblock%}

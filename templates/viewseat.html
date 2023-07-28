@@ -1,0 +1,155 @@
+{%extends "navbardefault.html"%}
+    {%block contentcss%}
+
+    .seatbus
+		{
+			background-color:seagreen;
+			width: 202px;
+			height: 550px;
+			border-radius: 10px 10px;
+			position: relative;
+			margin-left: 200px;
+			margin-top: 30px;
+			appearance:0px;
+			cursor: pointer;
+		}
+    .seatbus img
+		{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			margin-top: 5px;
+			margin-left: 140px;
+		}
+    .coloumn1
+		{
+			width: 90px;
+			height: 400px;
+			position: absolute;
+            margin-left: 14px;
+			margin-top: 80px;
+		}
+    .coloumn2
+		{
+			width: 90px;
+			height: 400px;
+			position: absolute;
+			margin-left: 121px;
+			margin-top: 80px;
+		}
+    .backseats
+		{
+			width: 210px;
+			position: absolute;
+			margin-top: 500px;
+            margin-left: 16px;
+		}
+    input[type='checkbox']
+		{
+			height: 30px;
+			width: 30px;
+			appearance:none;
+			background-image: url('static/pic/available.png');
+			background-size: 100% 100%;
+			cursor: pointer;
+		}
+    input[type='checkbox']:checked
+		{
+			background-image: url('static/pic/gents.png');
+			background-size: 100% 100%;
+			cursor: pointer;
+		}
+    input[type='checkbox']:disabled
+		{
+			background-image: url('static/pic/reserved.png');
+			background-size: 100% 100%;
+			cursor: pointer;
+		}
+    .explain
+		{
+			position: absolute;
+			margin-left: 500px;
+			margin-top: -350px;
+			font-size:20px;
+			font-weight: bold;
+		}
+    .explain img
+		{
+			width: 30px;
+			height: 30px;
+		}
+	.seatbus p input
+		{
+			position: absolute;
+			margin-left: 600px;
+			margin-top: 250px;
+			font-size:25px;
+			font-weight: bold;
+			background-color:blue;
+			border-radius:30px;
+			cursor: pointer;
+		}
+	.seatbus p input:hover
+{
+color:white;
+}
+	.heading
+	{
+		position: absolute;
+		margin-left: 600px;
+		margin-top: 0px;
+		font-size:50px;
+	}
+
+	{%endblock%}
+{%block contenthtml%}
+	{% if error %}
+		<script type="text/javascript">
+			alert("{{error}}");
+
+		</script>
+	{% endif %}
+    <form action="/dobook" method="post">
+		<h1 class="heading">Please Select Seats</h1>
+        <div class="seatbus">
+            <img src="static/pic/steering.png">
+            <div class="coloumn1">
+				{%for i in range(1,21)%}
+						{%if i in reservedseat %}
+							<input type="checkbox" name="seat" value="{{i}}" title="{{i}}" disabled/>
+						{%else%}
+							<input type="checkbox" name="seat" value="{{i}}" title="{{i}}"/>
+						{%endif%}
+                {%endfor%}
+
+            </div>
+            <div class="coloumn2">
+                {%for i in range(21,41)%}
+                   {%if i in reservedseat %}
+							<input type="checkbox" name="seat" value="{{i}}" title="{{i}}" disabled/>
+						{%else%}
+							<input type="checkbox" name="seat" value="{{i}}" title="{{i}}"/>
+						{%endif%}
+                {%endfor%}
+            </div>
+            <div class="backseats">
+                {%for i in range(41,46)%}
+                   {%if i in reservedseat %}
+							<input type="checkbox" name="seat" value="{{i}}" title="{{i}}" disabled/>
+						{%else%}
+							<input type="checkbox" name="seat" value="{{i}}" title="{{i}}"/>
+						{%endif%}
+                {%endfor%}
+            </div>
+			<p>
+            <input type="submit" value="CONTINUE"/></p>
+        </div>
+    </form>
+    <div class="explain">
+        <p><img src="static/pic/available.png">  Available</p>
+        <p><img src="static/pic/reserved.png">  Reserved </p>
+        <p><img src="static/pic/gents.png">  Booking </p>
+
+    </div>
+
+{%endblock%}

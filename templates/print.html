@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket</title>
+    <style type="text/css">
+        .table
+        {
+            position:absolute;
+            margin-left:-5px;
+            margin-top:180px;
+            width:900px;
+            height:300px;
+            font-size:30px;
+        }
+        h1
+        {
+            position:absolute;
+            margin-left:250px;
+            margin-top:80px;
+            font-size:50px;
+			text-decoration: underline;
+			font-family: Castellar;
+        }
+        .table1
+        {
+            position:absolute;
+            margin-left:-5px;
+            margin-top:550px;
+            width:900px;
+            height:150px;
+            font-size:30px;
+        }
+        h2
+        {
+            text-decoration: underline;
+            position:absolute;
+            margin-left:310px;
+            margin-top:490px;
+            font-size:40px;
+        }
+    </style>
+    <script type="text/javascript">
+        function doprint()
+         {
+              window.print();
+         }
+    </script>
+</head>
+<body onload="window.print()">
+    <h1> Chartered Bus</h1>
+    <table class="table" border="3">
+		<thead>
+			<th colspan="4" style="font-size:40px;">
+				  Ticket
+			</th>
+		</thead>
+		<tbody>
+		{%for item in info%}
+			<tr>
+				<th>PNR NO</th>
+				<td align="center">{{item[0]}}</td>
+                <th > Bus Time</th>
+				<td align="center">{{session["time"]}}</td>
+			</tr>
+			<tr>
+				<th>From</th>
+				<td align="center">{{item[2]}}</td>
+                <th>Date</th>
+				<td align="center">{{item[5]}}</td>
+
+			</tr>
+			<tr>
+				<th>To</th>
+				<td align="center">{{item[3]}}</td>
+                <th>Passenger</th>
+				<td align="center">{{item[1]}}</td>
+
+			</tr>
+			<tr>
+                <th>Distance</th>
+				<td align="center">{{item[4]}}</td>
+                <th>Contact</th>
+				<td align="center">{{item[11]}}</td>
+
+			</tr>
+			<tr>
+                <th>Bus No</th>
+				<td align="center">{{item[6]}}</td>
+                <th>Email</th>
+				<td align="center">{{item[12]}}</td>
+			</tr>
+            <tr>
+                <th colspan="3">Total Payment</th>
+				<td align="center">{{item[8]}}</td>
+            </tr>
+        {%endfor%}
+		</tbody>
+	</table>
+    <h2>Personal Information</h2>
+    <table class="table1" border="3">
+        <tbody>
+            <tr>
+                    <th>Names</th>
+                    {%for flag in names%}
+                        <td align="center">{{flag}}</td>
+                    {%endfor%}
+            </tr>
+            <tr>
+                    <th>Gender</th>
+                    {%for flag in gender%}
+                        <td align="center">{{flag}}</td>
+                    {%endfor%}
+            </tr>
+            <tr>
+                    <th>Seat No</th>
+                    {%for flag in seatno%}
+                        <td align="center">{{flag}}</td>
+                    {%endfor%}
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

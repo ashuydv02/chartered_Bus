@@ -1,0 +1,138 @@
+{%extends "navbardefault.html"%}
+
+{%block contentcss%}
+    h10
+    {
+        font-size:35px;
+        color:blue;
+        margin-left:500px;
+        border-bottom: solid black;
+    }
+
+    p11
+    {
+        color:blue;
+        font-size:30px;
+        position:absolute;
+        margin-left: -680px;
+        margin-top:50px;
+    }
+    .passinfo p12 input
+    {
+        width:200px;
+        position: absolute;
+        margin-left: 80px;
+        margin-top: 300px;
+        font-size:30px;
+        font-weight: bold;
+        background-color:blue;
+        border-radius:10px;
+        cursor: pointer;
+        color:white;
+    }
+    .passinfo p12 input:hover
+    {
+        cursor: pointer;
+        color:black;
+    }
+    .passname p13
+    {
+        position: relative;
+        left:100px;
+        top:50px;
+        font-size:30px;
+    }
+    .passname input
+    {
+        font-size:20px;
+    }
+    .passinfo p14
+    {
+        font-size:30px;
+        color:blue;
+        position:absolute;
+        margin-left: 70px;
+        margin-top:60px;
+    }
+
+    .passinfo p15
+    {
+        position:absolute;
+        margin-left: 100px;
+        margin-top:110px;
+        font-size:30px;
+    }
+    .passinfo p15 input
+    {
+        font-size:20px;
+    }
+    .passinfo p16
+    {
+        position:absolute;
+        margin-left: 75px;
+        margin-top:190px;
+        font-size:30px;
+        color:blue;
+    }
+    .passinfo p17
+    {
+        position:absolute;
+        margin-left: 100px;
+        margin-top:240px;
+        font-size:30px;
+
+    }
+    p18 img
+    {
+        height:400px;
+        width:600px;
+        position:absolute;
+        margin-left:700px;
+        margin-top:50px;
+    }
+    .passinfo p19
+    {
+        position:absolute;
+        margin-left: 100px;
+        margin-top:145px;
+        font-size:30px;
+    }
+    .passinfo p19 input
+    {
+        font-size:20px;
+    }
+
+{%endblock%}
+
+{%block contenthtml%}
+{% if error %}
+		<script type="text/javascript">
+			alert("{{error}}");
+		</script>
+{% endif %}
+<form action="/bookconfirm" method="post">
+<p18><img src="static/pic/bus2.png"/></p18>
+<h10>Passenger's Info</h10>
+<p11>Passenger's Name</p11>
+<div class="passinfo">
+    <div class="passname">
+        {%for i in range(1, session['p']+1 )%}
+            <p13>{{i}} : <input type="text" name="pn" placeholder="Passenger Name" required/>
+                         <input type="radio" name="pgender{{i}}" value="male" required/>male
+                         <input type="radio" name="pgender{{i}}" value="female" required/>female
+            </p13><br>
+        {%endfor%}
+    </div>
+    <p12><input type="submit" value="Confirm"/></p12>
+    <p14>Contact Information</p14>
+
+    <p15>Contact : <input type="text" name="number" required/></p15>
+    <p19>Email&nbsp&nbsp&nbsp :&nbsp<input type="email" name="email" required /></p19>
+    <p16>Fare Details</p16>
+    <p17>Ticket Fare (incl 5% GST) &nbsp : &nbsp RS.{{session['total']}} &nbsp cash
+    </p17>
+</div>
+</form>
+
+
+{%endblock%}

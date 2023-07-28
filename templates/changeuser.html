@@ -1,0 +1,46 @@
+{% extends 'default.html'%}
+{%block css%}
+    table
+    {
+        position:absolute;
+        margin-top:100px;
+        margin-left:500px;
+    }
+
+{%endblock%}
+
+
+{%block html%}
+    <form action="/douserupdate" method="post">
+        <table class="table table-hover" border="5" style="width:400px;" >
+          <thead>
+                <th colspan="2">Change User Information</th>
+          </thead>
+          <tbody>
+                    {% for item in data%}
+                        <p><input type="hidden" name="sno" value="{{item[0]}}" /></p>
+                    <tr>
+                        <th>Name </th>
+                        <td><input type="text" name="name" value="{{item[1]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th>Number </th>
+                        <td> <input type="text" name="number" value="{{item[2]}}"></td>
+                    </tr>
+                    <tr>
+                        <th>Email </th>
+                        <td><input type="email" name="email" value="{{item[3]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th>Password </th>
+                        <td><input type="password" name="password" value="{{item[4]}}" /></td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="2" align="right"><input type="submit" value="Confirm"/></td>
+                    </tr>
+          </tbody>
+        </table>
+    </form>
+
+{%endblock%}

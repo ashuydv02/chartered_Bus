@@ -1,0 +1,69 @@
+{%extends "navbardefault.html"%}
+	{%block contentcss%}
+		.bgphoto img
+		{
+			width:550px;
+			height: 300px;
+			position: absolute;
+			margin-left: 700px;
+			margin-top: 30px;
+		}
+		.bgphoto h1
+		{
+			position:absolute;
+			margin-left:100px;
+			margin-top:40px;
+		}
+		.enter h1 input
+		{
+			height:35px;
+			width:400px;
+			font-size:20px;
+			position: absolute;
+			margin-left:0px;
+			margin-top:70px;
+		}
+		.enter h2 input
+		{
+			height:35px;
+			width:400px;
+			font-size:20px;
+			position: absolute;
+			margin-left:100px;
+			margin-top:160px;
+		}
+		.enter h3 input
+		{
+			width: 150px;
+			position: absolute;
+			margin-top:230px;
+			margin-left: 100px;
+			background-color: blue;
+			font-size: 20px;
+
+		}
+		.enter h3 input:hover
+		{
+			color: white;
+			cursor: pointer;
+		}
+
+	{%endblock%}
+{%block contenthtml%}
+<form action="/checkref" method="post">
+	<div class=bgphoto>
+		<img src="static/pic/bus2.png">
+		<h1>Refund Status</h1>
+		<div class="enter">
+			<h1><input type="text" name="tnumber" placeholder="PNR Number" required></h1>
+			<h2><input type="text" name="emailno" placeholder="Email" required></h2>
+			<h3><input type="submit" onclick="ref()" value="Check Status"></h3>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+	{% if error %}
+			alert("{{error}}");
+	{% endif %}
+</script>
+{%endblock%}

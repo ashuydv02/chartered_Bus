@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function doprint()
+		{
+			window.print();
+		}
+	</script>
+	<title></title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<!--	<link rel="stylesheet" type="text/css" href="">-->
+	<style type="text/css">
+		*
+		{
+			padding: 0px;
+			margin: 0px;
+
+		}
+
+		.nav
+		{
+			height: 100px;
+			width: 100%;
+			background-color: white;
+			border-bottom: solid yellow;
+		}
+		.logo
+		{
+			margin-top:-4px;
+			margin-left: 50px;
+		}
+		.logo img
+		{
+			height: 100px;
+		}
+		.menu p
+		{
+			display: inline;
+			margin-left: 20px;
+			position: relative;
+			left: 80px;
+			top: 50px;
+		}
+		.menu p a:hover
+		{
+			color: orange;
+			cursor: pointer;
+		}
+
+		{%block contentcss%}
+
+		{%endblock%}
+
+		.heading3
+		{
+			height: 150px;
+			width: 100%;
+			background-color: #FFE643;
+			position: absolute;
+			margin-top: 460px;
+		}
+		.heading3 p
+		{
+			display: inline;
+			margin-left: 125px;
+			font-size: 20px;
+			position: relative;
+			top: 40px;
+		}
+		.heading4 p
+		{
+			display: inline;
+			margin-left: 100px;
+			font-size: 40px;
+			position: relative;
+			top: 525px;
+			color: blue;
+		}
+		.forthbody h1
+		{
+			position: absolute;
+			margin-top: 600px;
+			margin-left: 900px;
+			color: #FFE643
+		}
+		.forthbody p
+		{
+			position: absolute;
+			margin-left: 900px;
+			margin-top: 650px;
+			font-weight: bold;
+
+		}
+		.forthbody a
+		{
+			position: absolute;
+			margin-left: 900px;
+			margin-top: 680px;
+			font-weight: bold;
+		}
+		.forthbody b
+		{
+			position: absolute;
+			margin-left: 900px;
+			margin-top: 710px;
+		}
+		.lastbody
+		{
+			height: 60px;
+			width: 100%;
+			background-color: royalblue;
+			position: absolute;
+			margin-top:-18px;
+		}
+		.lastbody h1
+		{
+			font-size: 20px;
+			position: absolute;
+			margin-left: 30px;
+			margin-top: 20px;
+		}
+		.lastbody h1:hover
+		{
+			color: white;
+		}
+		.bus img
+		{
+			height: 80px;
+			width: 150px;
+			margin-top: 820px;
+		}
+		.bus p
+		{
+			font-size: 30px;
+			position: absolute;
+			margin-top: 600px;
+			margin-left: 100px;
+			color: #FFE643
+		}
+		.bus option1
+		{
+			position: absolute;
+			margin-left: 100px;
+			margin-top: 650px;
+			font-size:20px;
+		}
+		.bus option2
+		{
+			position: absolute;
+			margin-left: 100px;
+			margin-top: 680px;
+			font-size:20px;
+		}
+		.bus option3
+		{
+			position: absolute;
+			margin-left: 100px;
+			margin-top: 710px;
+			font-size:20px;
+		}
+		.bus option4
+		{
+			position: absolute;
+			margin-left: 100px;
+			margin-top: 740px;
+			font-size:20px;
+		}
+		.bus option5
+		{
+			position: absolute;
+			margin-left: 100px;
+			margin-top: 770px;
+			font-size:20px;
+		}
+		.bus option6
+		{
+			position: absolute;
+			margin-left: 100px;
+			margin-top: 800px;
+			font-size:20px;
+		}
+
+    </style>
+	<script type="text/javascript">
+	{%block javascript%}
+	{% endblock %}
+	</script>
+</head>
+<body id="mainbody">
+<div class="nav">
+	<div class="logo">
+		<img src="static/pic/buslogo.png">
+	</div>
+	<div class="menu">
+		<p><a href="/">HOME</a></p>
+		<p><a href="/domanage">MANAGE BOOKING</a></p>
+		<p><a href="/dogallery">GALLERY</a></p>
+		<p><a href="/doaboutus">ABOUT US</a></p>
+		<p><a href="/docontact">CONTACT</a></p>
+	</div>
+</div>
+{%block contenthtml%}
+
+{%endblock%}
+
+<div class="thirdbody">
+
+	<div class="heading3">
+		<p>FOR PHONE BOOKING 24*7</p>
+		<p>FOR ONLINE PAYMENT ISSUES</p>
+		<p>FOR COMPLAINTS BOOKING</p>
+	</div>
+	<div class="heading4">
+		<p>+91 9522546358</p>
+		<p>+91 6265640216</p>
+		<p>+91 8518922958</p>
+	</div>
+</div>
+<div class="forthbody">
+	<h1>CORPORATE OFFICE</h1>
+	<p>Shiv Nagar 80 Feet Road Bhopal 463020</p>
+	<a>+91 9522546358 | +91 6265640216 | +91 8518922958</a>
+	<b>chartered2022@gmail.com</b>
+</div>
+<div class="bus">
+	<p>Quick Link</p>
+	<option1>><a href="dooffer"> Offers</a></option1>
+	<option2>><a href="docontact"> UsContact</a></option2>
+	<option3>><a href="dorefund"> Refund Status</a></option3>
+	<option4>><a href="docondition"> Terms & Conditions</a></option4>
+
+	<marquee behavior="scroll" direction="left" scrollamount="15">
+		<img src="static/pic/smallbus.png">
+	</marquee>
+</div>
+<div class="lastbody">
+	<h1>Copyright © 2022 | CHARTERED SPEED LIMITED. All Rights Reserved.</h1>
+</div>
+{% block myjavascript%}
+{% endblock %}
+</body>
+</html>

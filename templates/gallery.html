@@ -1,0 +1,64 @@
+{%extends "navbardefault.html"%}
+	{%block contentcss%}
+
+		.photobus1 img
+		{
+			position: absolute;
+			margin-left: 30px;
+			margin-top: 80px;
+			box-shadow: 5px 5px;
+		}
+		.photobus2 img
+		{
+			position: absolute;
+			margin-left: 480px;
+			margin-top: 80px;
+			box-shadow: 5px 5px;
+		}
+		.photobus3 img
+		{
+			position: absolute;
+			margin-left: 930px;
+			margin-top: 80px;
+			box-shadow: 5px 5px;
+		}
+
+		.name p1
+		{
+		    position: absolute;
+			margin-left: 160px;
+			margin-top: 320px;
+			font-size:50px;
+		}
+		.name p2
+		{
+		    position: absolute;
+			margin-left: 610px;
+			margin-top: 320px;
+			font-size:50px;
+		}
+		.name p3
+		{
+		    position: absolute;
+			margin-left: 1060px;
+			margin-top: 320px;
+			font-size:50px;
+		}
+	{%endblock%}
+{%block contenthtml%}
+
+	<div class="photobus1">
+		<img src="static/pic/speed.png">
+	</div>
+	<div class="photobus2">
+		<img src="static/pic/safety.png">
+	</div>
+	<div class="photobus3">
+		<img src="static/pic/comfort.png">
+	</div>
+	<div class="name">
+		<p1>Speed</p1>
+		<p2>Safety</p2>
+		<p3>Comfort</p3>
+
+{%endblock%}

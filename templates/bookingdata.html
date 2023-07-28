@@ -1,0 +1,73 @@
+{% extends 'default.html'%}
+
+{%block css%}
+   h1
+  {
+    text-align:center;
+  }
+
+    .searchbar
+    {
+        margin-left:1000px;
+    }
+{%endblock%}
+
+{%block html%}
+{%if error%}
+    <script type="text/javascript">
+        alert("{{error}}")
+    </script>
+{%endif%}
+<div class="row4">
+
+    <h1>Booking Info</h1>
+    <form action="/dobookingsearch" method="post">
+        <div class="searchbar">
+            <p><input type="search" name="search" placeholder="Enter PNR Number"><input type="submit" value="Search"></p>
+        </div>
+    </form>
+    <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">PNR No</th>
+              <th scope="col">Passenger</th>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+              <th scope="col">Distance</th>
+                <th scope="col">Date</th>
+                <th scope="col">Bus No</th>
+               <th scope="col">Seat No</th>
+              <th scope="col">Cost</th>
+                <th scope="col">Name of Passenger</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Contact</th>
+<!--                <th scope="col">Email</th>-->
+              <th scope="col">Update</th>
+            </tr>
+          </thead>
+          <tbody>
+          {%for item in data%}
+            <tr>
+              <th scope="row">{{item[0]}}</th>
+              <td scope="row">{{item[1]}}</td>
+              <td scope="row">{{item[2]}}</td>
+              <td scope="row">{{item[3]}}</td>
+              <td scope="row">{{item[4]}}</td>
+              <td scope="row">{{item[5]}}</td>
+              <td scope="row">{{item[6]}}</td>
+              <td scope="row">{{item[7]}}</td>
+              <td scope="row">{{item[8]}}</td>
+                <td scope="row">{{item[9]}}</td>
+                <td scope="row">{{item[10]}}</td>
+                <td scope="row">{{item[11]}}</td>
+<!--                <td scope="row">{{item[12]}}</td>-->
+              <td scope="row"><a href="/editbooking?uid={{item[0]}}"><input type="button" value="Edit"></a><a href="/deletebooking?uid={{item[0]}}"><input type="button" value="Delete"></a></td>
+            </tr>
+          {%endfor%}
+          </tbody>
+    </table>
+    {%if(emp)%}
+        <h1>{{emp}}</h1>
+    {%endif%}
+</div>
+{%endblock%}

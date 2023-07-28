@@ -1,0 +1,44 @@
+{% extends 'default.html'%}
+{%block css%}
+    table
+    {
+        position:absolute;
+        margin-top:100px;
+        margin-left:500px;
+    }
+
+{%endblock%}
+
+{%block html%}
+<form action="/addroute" method="post">
+<table class="table table-striped" border="3" style="width:400px;">
+          <thead>
+                <th colspan="2">Add Routes Information</th>
+          </thead>
+          <tbody>
+            <tr>
+                <th scope="col">From</th>
+                <td><input type="text" name="from" required/></td>
+            </tr>
+            <tr>
+                <th scope="col">TO</th>
+                <td><input type="text" name="to" required/></td>
+            </tr>
+            <tr>
+                <th scope="col">Distance</th>
+                <td><input type="text" name="distance" required/></td>
+            </tr>
+            <tr>
+              <th scope="col">Cost</th>
+              <td><input type="text" name="price" required/></td>
+            </tr>
+          </tbody>
+          <tfoot>
+                <td colspan="2" align="right">
+                    <input type="submit" value="Submit" />
+                </td>
+          </tfoot>
+        </table>
+
+</form>
+{%endblock%}

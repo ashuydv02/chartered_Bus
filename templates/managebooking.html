@@ -1,0 +1,74 @@
+{%extends "navbardefault.html"%}
+	{%block contentcss%}
+		.bgphoto img
+		{
+			width:550px;
+			height: 300px;
+			position: absolute;
+			margin-left: 750px;
+			margin-top: 80px;
+		}
+		.bgphoto h1
+		{
+			margin-left:100px;
+			margin-top:20px;
+		}
+		.enter h1 input
+		{
+			height:35px;
+			width:400px;
+			font-size:20px;
+		}
+		.enter h2 input
+		{
+
+			height:35px;
+			width:400px;
+			font-size:20px;
+			margin-left:100px;
+			margin-top:20px;
+		}
+		.enter h3 input
+		{
+			width: 120px;
+			position: absolute;
+			margin-top:20px;
+			margin-left: 100px;
+			background-color: blue;
+			font-size: 25px;
+			border:none;
+			font-weight:bold;
+			border-radius:10px;
+		}
+		.enter h3 input:hover
+		{
+			color: white;
+			cursor: pointer;
+		}
+		.enter p
+		{
+			position: absolute;
+			margin-top: 80px;
+			margin-left: 100px;
+			opacity: 95%;
+		}
+	{%endblock%}
+{%block contenthtml%}
+<form action="/manageinfo" method="post">
+	<div class=bgphoto>
+		<img src="static/pic/bus2.png">
+		<h1>Manage Booking</h1>
+		<div class="enter">
+			<h1><input type="text" name="tnumber" placeholder="Ticket Number" required></h1>
+			<h2><input type="text" name="mnumber" placeholder="Phone Number" required></h2>
+			<h3><input type="submit" value="submit"></h3>
+			<p>Please enter the details for Print, Update and Cancel Ticket.</p>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+	{% if error %}
+		alert("{{error}}");
+	{% endif %}
+</script>
+{%endblock%}

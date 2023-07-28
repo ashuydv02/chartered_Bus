@@ -1,0 +1,293 @@
+{%extends "navbardefault.html"%}
+    {%block contentcss%}
+    .booknav
+    {
+        height:150px;
+        width:100%;
+        background-color:#FFA803;
+        display:inline-block;
+    }
+    .navheading p
+    {
+        color:white;
+        font-size:30px;
+        font-weight:bold;
+        display:inline-block;
+        margin-left:100px;
+        margin-right:60px;
+        margin-top:25px;
+    }
+    .booknav p1
+    {
+        font-size:30px;
+        display:inline-block;
+        margin-left:100px;
+        background-color:#FFA803 ;
+        color: blue;
+        cursor: pointer;
+    }
+
+    .booknav p2
+    {
+        font-size:30px;
+        display:inline-block;
+        margin-left:265px;
+        background-color:#FFA803 ;
+        color: blue;
+        cursor: pointer;
+
+    }
+
+    .booknav p3
+    {
+        font-size:30px;
+        display:inline-block;
+        margin-left:280px;
+        background-color:#FFA803 ;
+        color: blue;
+        cursor: pointer;
+    }
+	.av h1
+		{
+			position: absolute;
+			margin-left: 600px;
+			margin-top: 20px;
+            border-bottom: double;
+		}
+    .chartred
+	{
+		width:100%;
+		height:400px;
+		position:relative;
+		z-index:1;
+	}
+	.char1
+	{
+		height: 150px;
+		width: 100%;
+		background-color: silver;
+		margin-top:100px;
+	}
+	.char1 h1
+		{
+			position: absolute;
+			margin-left: 80px;
+            margin-top:20px;
+            color:blue;
+		}
+	.char1 p
+		{
+			position: absolute;
+			margin-left: 80px;
+			margin-top:70px;
+			font-size: 25px;
+		}
+	.char1 p1
+		{
+			position: absolute;
+			margin-left: 550px;
+			margin-top:20px;
+			font-size: 30px;
+		}
+	.char1 p2
+		{
+			position: absolute;
+			margin-left: 550px;
+			margin-top:60px;
+			font-size: 30px;
+		}
+	.char1 p3
+		{
+			position: absolute;
+			margin-left: 1200px;
+			margin-top:20px;
+			font-size: 30px;
+		}
+	.char2
+		{
+			height: 150px;
+			width: 100%;
+			background-color: silver;
+			margin-top:30px;
+		}
+	.char2 h1
+		{
+			position: absolute;
+			margin-left: 80px;
+            margin-top:20px;
+            color:blue;
+		}
+	.char2 p
+		{
+			position: absolute;
+			margin-left: 80px;
+			margin-top:70px;
+			font-size: 25px;
+		}
+	.char2 p1
+		{
+			position: absolute;
+			margin-left: 550px;
+			margin-top:20px;
+			font-size: 30px;
+		}
+	.char2 p2
+		{
+			position: absolute;
+			margin-left: 550px;
+			margin-top:65px;
+			font-size: 30px;
+		}
+	.char2 p3
+		{
+			position: absolute;
+			margin-left: 1200px;
+			margin-top:20px;
+			font-size: 30px;
+		}
+	.char3
+		{
+			height: 150px;
+			width: 100%;
+			background-color: silver;
+			margin-top:30px;
+		}
+	.char3 h1
+		{
+			position: absolute;
+			margin-left: 80px;
+            margin-top:20px;
+            color:blue;
+		}
+	.char3 p
+		{
+			position: absolute;
+			margin-left: 80px;
+			margin-top:70px;
+			font-size: 25px;
+		}
+	.char3 p1
+		{
+			position: absolute;
+			margin-left: 550px;
+			margin-top:20px;
+			font-size: 30px;
+		}
+	.char3 p2
+		{
+			position: absolute;
+			margin-left: 550px;
+			margin-top:60px;
+			font-size: 30px;
+		}
+	.char3 p3
+		{
+			position: absolute;
+			margin-left: 1200px;
+			margin-top:20px;
+			font-size: 30px;
+		}
+	.b1 input
+		{
+			height: 40px;
+			width: 100px;
+			position: relative;
+			left: 1195px;
+			top:-320px;
+			background-color:blue;
+			cursor: pointer;
+			border-radius: 20px;
+			z-index:2;
+		}
+	.b1 input:hover
+		{
+			background-color:orange;
+		}
+	.b2 input
+		{
+			height: 40px;
+			width: 100px;
+			position: relative;
+			left: 1195px;
+			top:-180px;
+			background-color:blue;
+			cursor: pointer;
+			border-radius: 20px;
+			z-index:2;
+		}
+	.b2 input:hover
+		{
+			background-color:orange;
+		}
+	.b3 input
+		{
+			height: 40px;
+			width: 100px;
+			position: relative;
+			left: 1195px;
+			top:-40px;
+			background-color:blue;
+			cursor: pointer;
+			border-radius: 20px;
+			z-index:2;
+		}
+	.b3 input:hover
+		{
+			background-color:orange;
+		}
+	.chartred img
+	{
+		height:480px;
+		width:100%;
+	}
+	{%endblock%}
+{%block contenthtml%}
+<div class="booknav">
+            <div class="navheading">
+                    <p>Boarding City</p>
+                    <p>Dropping City</p>
+                    <p>Departure Date</p>
+            </div>
+            <p1>{{session['start']}}</p1>
+            <p2>{{session['end']}}</p2>
+            <p3>{{session['date']}}</p3>
+</div>
+<div class="av">
+	<h1>Available Buses</h1>
+</div>
+<div class="chartred">
+	<div class="char1">
+		<h1>MP 04 BP 1432 </h1>
+		<p>2+2, Volvo Seater,AC (45 seats)</p>
+		<p1>09:00 AM</p1>
+		<p2>{{session['date']}}</p2>
+		<p3>RS.{{session['price']}}</p3>
+	</div>
+	<div class="char2">
+		<h1>MP 04 BP 1342 </h1>
+		<P>2+2, Volvo Seater,Non-AC (45 seats)</P>
+		<p1>02:00 PM </p1>
+		<p2>{{session['date']}}</p2>
+		<p3>RS.{{session['price']}}</p3>
+	</div>
+	<div class="char3">
+		<h1>MP 04 BP 3142 </h1>
+		<P>2+2, Volvo Seater,AC (45 seats)</P>
+		<p1>07:00 PM</p1>
+		<p2>{{session['date']}}</p2>
+		<p3>RS.{{session['price']}}</p3>
+	</div>
+	<img src="static/pic/busphoto.png">
+</div>
+<div class="button">
+	<div class="b1">
+		<a href="/goseat?busno=MP04BP1432"><input type="submit" value="View seat"></a>
+	</div>
+	<div class="b2">
+		<a href="/goseat?busno=MP04BP1342"><input type="submit" value="View seat"></a>
+	</div>
+	<div class="b3">
+		<a href="/goseat?busno=MP04BP3142"><input type="submit" value="View seat"></a>
+	</div>
+</div>
+{%endblock%}

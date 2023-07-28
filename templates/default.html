@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Pannel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <style type="text/css">
+        .row
+        {
+            height:130px;
+            background-color:#ebf4fa;
+        }
+         .row p1 img
+         {
+            position:absolute;
+            margin-left:1250px;
+            height:130px;
+         }
+         .row p2 img
+         {
+            position:absolute;
+            margin-left:0px;
+            height:130px;
+         }
+         .col
+         {
+            position:relative;
+            left:-150px;
+         }
+         .forline
+         {
+            width:100%;
+            height:2px;
+            background-color:black;
+         }
+        {%block css%}
+        {%endblock%}
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <p1><img src="static/pic/charteredlogo.png"></p1>
+                <p2><img src="static/pic/adminlogo.png"></p2>
+            </div>
+            <div class="col pt-5">
+                    <div class="nav nav-pills">
+                          <p class="nav-item">
+                                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                      {%if(session['adminuser'])%}
+                                            <button type="button" class="btn btn-primary"><a class="nav-link active" aria-current="page" href="/admin">Log Out</a></button>
+                                      {%else%}
+                                            <button type="button" class="btn btn-primary"><a class="nav-link active" aria-current="page" href="/admin">Admin Pannel</a></button>
+                                      {%endif%}
+                                      <div class="btn-group" role="group">
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                          Users
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                          <li><a class="dropdown-item" href="/adminuser">Admin User</a></li>
+                                          <li><a class="dropdown-item" href="/user">Bus User</a></li>
+                                        </ul>
+                                      </div>
+                                      <button type="button" class="btn btn-primary"><a class="nav-link active" aria-current="page" href="/routes">Routes</a></button>
+
+                                      <div class="btn-group" role="group">
+                                        <button id="btnGroupDrop2" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                          Bookingdata
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                          <li><a class="dropdown-item" href="/bookingdata?book=1">Advance Booking</a></li>
+                                          <li><a class="dropdown-item" href="/bookingdata?book=2">Today's Booking</a></li>
+                                            <li><a class="dropdown-item" href="/bookingdata?book=3">Old Booking</a></li>
+                                        </ul>
+                                      </div>
+                                      <button type="button" class="btn btn-primary"><a class="nav-link active" aria-current="page" href="/">Back To Website</a></button>
+                                </div>
+                          </p>
+                    </div>
+            </div>
+        </div>
+        <div class="forline">
+
+        </div>
+        {%block html%}
+        {%endblock%}
+    </div>
+</body>
+</html>

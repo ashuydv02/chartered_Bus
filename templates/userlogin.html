@@ -1,0 +1,103 @@
+{%extends "navbardefault.html"%}
+
+
+
+{%block contentcss%}
+
+.box h1
+{
+    position: absolute;
+	margin-left: 100px;
+	margin-top: 30px;
+    font-size:40px;
+}
+.box p1
+{
+    position: absolute;
+	margin-left: 100px;
+	margin-top: 100px;
+    font-size:20px;
+}
+
+.box p3
+{
+    position: absolute;
+	margin-left: 100px;
+	margin-top: 100px;
+    font-size:20px;
+}
+.box p4 input
+{
+    position: absolute;
+	margin-left: 100px;
+	margin-top: 130px;
+    font-size:25px;
+}
+
+.box p7
+{
+    position: absolute;
+	margin-left: 100px;
+	margin-top: 180px;
+    font-size:20px;
+}
+.box p8 input
+{
+    position: absolute;
+	margin-left: 100px;
+	margin-top: 210px;
+    font-size:25px;
+}
+.box p9 input
+{
+    position: absolute;
+	margin-left: 100px;
+	margin-top: 260px;
+    font-size:25px;
+    padding:2px 5px;
+    background-color:blue;
+    border-radius:10px;
+    color:white;
+}
+.box p9 input:hover
+{
+    color:black;
+    cursor: pointer;
+}
+p44 img
+{
+    height:300px;
+    width :600px;
+    position: absolute;
+	margin-left: 700px;
+	margin-top: 80px;
+}
+p45
+{
+    position: absolute;
+	margin-left: 100px;
+	margin-top: 310px;
+}
+
+{%endblock%}
+{%block contenthtml%}
+{% if error %}
+		<script type="text/javascript">
+			alert("{{error}}");
+		</script>
+{% endif %}
+<form action="/douserlogin" method="post">
+    <div class="box">
+        <h1>LOGIN</h1>
+        <p3>Phone Number :</p3>
+        <p4><input type="text" name="number" required></p4>
+        <p7>Enter Password :</p7>
+        <p8><input type="password" name="password" required></p8>
+        <p9><input type="submit" value="Login"/></p9>
+    </div>
+    <p44><img src="static/pic/bus2.png"></p44>
+    <p45>Create New Account Please Signup : <a href="/usersign"> SIGNUP</a></p45>
+</form>
+
+
+{%endblock%}

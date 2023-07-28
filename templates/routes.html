@@ -1,0 +1,63 @@
+{% extends 'default.html'%}
+
+{%block css%}
+  h1
+  {
+    text-align:center;
+  }
+    .searchbar
+    {
+        margin-left:1000px;
+    }
+{%endblock%}
+
+{%block html%}
+
+{%if error%}
+    <script type="text/javascript">
+        alert("{{error}}")
+    </script>
+{%endif%}
+<div class="row2">
+  <h1>Routes</h1>
+    <form action="/doroutesearch" method="post">
+        <div class="searchbar">
+            <p><input type="search" name="search" placeholder="Search Routes"><input type="submit" value="Search"></p>
+        </div>
+    </form>
+    <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">From</th>
+              <th scope="col">To</th>
+              <th scope="col">Distance</th>
+              <th scope="col">Cost</th>
+              <th scope="col">Update</th>
+            </tr>
+          </thead>
+          <tbody>
+          {%for item in data%}
+            <tr>
+              <th>{{loop.index}}</th>
+              <td>{{item[1]}}</td>
+              <td>{{item[2]}}</td>
+              <td>{{item[3]}}</td>
+              <td>{{item[4]}}</td>
+
+              <td>
+                  <a href="/updateroute?sno={{item[0]}}"><input type="button" value="Edit"></a>
+                  <a href="/deleteroute?sno={{item[0]}}"><input type="button" value="Delete"></a>
+              </td>
+            </tr>
+          {%endfor%}
+          </tbody>
+          <tfoot align="right">
+                <th colspan="6">
+                    <a href="/newroute" ><input type="button" value="Add New Route" ></a>
+                </th>
+          </tfoot>
+    </table>
+
+</div>
+{%endblock%}

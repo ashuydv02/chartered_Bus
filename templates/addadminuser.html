@@ -1,0 +1,43 @@
+{% extends 'default.html'%}
+{%block css%}
+    table
+    {
+        position:absolute;
+        margin-top:100px;
+        margin-left:500px;
+    }
+
+{%endblock%}
+
+{%block html%}
+    <form action="/addadminuser" method="post">
+    <table class="table table-striped" border="3" style="width:400px;">
+              <thead align="center">
+                    <th colspan="2" >Add Information</th>
+              </thead>
+              <tbody>
+                <tr>
+                    <th scope="col">Name</th>
+                    <td><input type="text" name="name" required/></td>
+                </tr>
+                <tr>
+                    <th scope="col">Number</th>
+                    <td><input type="text" name="number" required/></td>
+                </tr>
+                <tr>
+                    <th scope="col">Email</th>
+                    <td><input type="email" name="email" required/></td>
+                </tr>
+                <tr>
+                  <th scope="col">Password</th>
+                  <td><input type="password" name="password" required/></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                    <td colspan="2" align="right"><input type="submit" value="Submit"></td>
+              </tfoot>
+            </table>
+
+    </form>
+
+{%endblock%}

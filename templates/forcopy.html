@@ -1,0 +1,101 @@
+{% extends 'navbardefault.html'%}
+
+
+{%block contentcss%}
+	.table
+	{
+		position:relative;
+		margin-left:250px;
+		margin-top:60px;
+		width:800px;
+		height:300px;
+		font-size:20px;
+	}
+	input[type=button]
+	{
+		height:30px;
+		width:150px;
+		font-size:20px;
+		font-weight:bold
+		background-color:#ffd633;
+	}
+	input[type=button]:hover
+	{
+		font-color:#e6f2ff;
+	}
+{%endblock%}
+
+{%block javascript%}
+function doprint()
+{
+	window.print();
+}
+{%endblock%}
+{%block contenthtml%}
+<div class="ticket">
+
+	<table class="table" border="8">
+		<thead>
+			<tr>
+				<th colspan="4" style="font-size:30px;">
+					Ticket
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{%for item in info%}
+			<tr>
+				<th>PNR NO</th>
+				<td align="center">{{item[0]}}</td>
+				<th>Names</th>
+				<td align="center">{{item[9]}}</td>
+			</tr>
+			<tr>
+				<th>From</th>
+				<td align="center">{{item[2]}}</td>
+				<th>Gender</th>
+				<td align="center">{{item[10]}}</td>
+			</tr>
+			<tr>
+				<th>To</th>
+				<td align="center">{{item[3]}}</td>
+				<th>SeatNo</th>
+				<td align="center">{{item[7]}}</td>
+			</tr>
+			<tr>
+				<th>Date</th>
+				<td align="center">{{item[5]}}</td>
+				<th>Contact</th>
+				<td align="center">{{item[11]}}</td>
+			</tr>
+			<tr>
+				<th>Time</th>
+				<td align="center">{{session['time']}}</td>
+				<th>Email</th>
+				<td align="center">{{item[12]}}</td>
+			</tr>
+			<tr>
+				<th>Passenger</th>
+				<td align="center">{{item[1]}}</td>
+				<th>Bus No</th>
+				<td align="center">{{item[6]}}</td>
+			</tr>
+			<tr>
+				<th>Distance</th>
+				<td align="center">{{item[4]}}</td>
+				<th>Total Payment</th>
+				<td align="center">{{item[8]}}</td>
+			</tr>
+		{%endfor%}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2" align="center"><a href="/"><input type="button" value="Go Home"/></a></td>
+				<td colspan="2" align="center"><a href="/doprint" ><input type="button" value="Print Ticket"/></a></td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+
+
+{%endblock%}

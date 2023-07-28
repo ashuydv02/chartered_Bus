@@ -1,0 +1,86 @@
+{% extends 'navbardefault.html' %}
+
+{%block contentcss%}
+    table
+    {
+        position:relative;
+        margin-top:80px;
+        margin-left:500px;
+    }
+
+{%endblock%}
+
+{%block contenthtml%}
+    <form action="/doupdateticket" method="post">
+    <table class="table table-striped" border="3" style="width:400px;">
+              <thead align="center">
+                    <th colspan="2" >Update Booking</th>
+              </thead>
+              <tbody>
+              {% for item in data%}
+                    <p><input type="hidden" name="uid" value="{{item[0]}}"></p>
+                    <tr>
+                        <th scope="col">Passenger count</th>
+                        <td><input type="text" name="psngr" value="{{item[1]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">From</th>
+                        <td><input type="text" name="from" value="{{item[2]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">To</th>
+                        <td><input type="text" name="to" value="{{item[3]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Distance</th>
+                        <td><input type="text" name="distance" value="{{item[4]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <td><input type="text" name="date" value="{{item[5]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Bus_No</th>
+                        <td>
+                            <select type="text" name="busno">
+                                <option>{{item[6]}}</option>
+                                <option>MP04BP1432</option>
+                                <option>MP04BP1342</option>
+                                <option>MP04BP3142</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Seat_No</th>
+                        <td><input type="text" name="seat_no" value="{{item[7]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Total</th>
+                        <td><input type="text" name="total" value="{{item[8]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Passenger Name</th>
+                        <td><input type="text" name="pass_name" value="{{item[9]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Passenger Gender</th>
+                        <td><input type="text" name="pass_gender" value="{{item[10]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Number</th>
+                        <td><input type="text" name="number" value="{{item[11]}}"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <td><input type="text" name="email" value="{{item[12]}}"/></td>
+                    </tr>
+              {%endfor%}
+              </tbody>
+              <tfoot>
+                    <td colspan="2" align="right"><input type="submit" value="Submit"></td>
+              </tfoot>
+            </table>
+
+    </form>
+
+{%endblock%}
